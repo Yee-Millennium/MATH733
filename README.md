@@ -1,1 +1,1 @@
-Lecture notes of MATH733 in UWM (instructor: Timo Seppäläinen)
+Lecture notes of MATH733: Probability Theory in UW-Madison (Instructor: Timo Seppäläinen)
