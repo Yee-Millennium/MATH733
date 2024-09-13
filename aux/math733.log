@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2023.2.1)  12 SEP 2024 14:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2023.2.1)  13 SEP 2024 00:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/yee/Courses/24Fall/Math_733/Notes_733/math733.tex
-(/Users/yee/Courses/24Fall/Math_733/Notes_733/math733.tex
+**/Users/yee/Courses/24Fall/Math_733/MATH733/math733.tex
+(/Users/yee/Courses/24Fall/Math_733/MATH733/math733.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-01-24> (/Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -711,7 +711,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsfit' in version `bold'
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count313
 \l__pdf_internal_box=\box59
-) (/Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.aux)
+) (/Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.aux)
 \openout1 = `math733.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -789,7 +789,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring ON on input line 11.
- (/Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out) (/Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out)
+ (/Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out) (/Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out)
 \@outlinefile=\write4
 \openout4 = `math733.out'.
 
@@ -811,26 +811,26 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
  (/Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.toc)
+) (/Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.toc)
 \tf@toc=\write5
 \openout5 = `math733.toc'.
 
  [1
 
-{/Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map}] [2] [3] [4] [5] [6] [7] [8] [9] (/Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.aux)
+{/Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map}] [2] [3] [4] [5] [6] [7] [8] [9] (/Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.aux)
 Package rerunfilecheck Info: File `math733.out' has not changed.
 (rerunfilecheck)             Checksum: F3FD9A14A5AF07473F885CD9F3C2789F;330.
  ) 
 Here is how much of TeX's memory you used:
- 16250 strings out of 476380
- 263965 string characters out of 5781496
+ 16251 strings out of 476380
+ 263937 string characters out of 5781496
  1867305 words of memory out of 5000000
- 36293 multiletter control sequences out of 15000+600000
+ 36294 multiletter control sequences out of 15000+600000
  527606 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,12n,90p,326b,808s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,12n,90p,324b,808s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/public/mathabx/dpi480/mathx10.pk> </Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/public/mathabx/dpi600/matha6.pk> </Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/public/mathabx/dpi600/matha8.pk> </Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/public/mathabx/dpi657/mathx10.pk> </Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/public/mathabx/dpi657/matha10.pk></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.pdf (9 pages, 235098 bytes).
+Output written on /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.pdf (9 pages, 236295 bytes).
 PDF statistics:
  292 PDF objects out of 1000 (max. 8388607)
  68 named destinations out of 1000 (max. 500000)

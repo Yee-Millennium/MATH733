@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1726169715 "/Users/yee/Courses/24Fall/Math_733/Notes_733/math733.tex" "aux/math733.pdf" "math733" 1726169716 0
-  "/Users/yee/Courses/24Fall/Math_733/Notes_733/math733.tex" 1726169714 19637 328f695bf2be09a2d2a34eec4a426844 ""
+["pdflatex"] 1726203791 "/Users/yee/Courses/24Fall/Math_733/MATH733/math733.tex" "aux/math733.pdf" "math733" 1726203792 0
+  "/Users/yee/Courses/24Fall/Math_733/MATH733/math733.tex" 1726203790 19664 e609d44d1772f0c5f53ff0c3560df5de ""
   "/Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map" 1721608449 313323 b4b4ddb60421b2842ccaf80e89e8e97e ""
   "/Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/public/mathabx/dpi480/mathx10.pk" 1717621680 24888 ff3a74ac2306d695a93e48eb421a0cbd ""
   "/Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/public/mathabx/dpi600/matha6.pk" 1717493370 16824 1e20200240ed308fa5648355f89388fc ""
@@ -154,10 +154,10 @@
   "/Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/verbatim.sty" 1673231852 7392 6cb60c76983625ab7344d128dbcdd881 ""
   "/Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/url/url.sty" 1662933319 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xcolor/xcolor.sty" 1662933320 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "aux/math733.aux" 1726169716 1078 caad516cb774ce0153d16bea480bf946 "pdflatex"
-  "aux/math733.out" 1726169716 330 f3fd9a14a5af07473f885cd9f3c2789f "pdflatex"
-  "aux/math733.toc" 1726169716 222 0094411bdec892307b91bf58cf1731f2 "pdflatex"
-  "math733.tex" 1726169714 19637 328f695bf2be09a2d2a34eec4a426844 ""
+  "aux/math733.aux" 1726203792 1078 caad516cb774ce0153d16bea480bf946 "pdflatex"
+  "aux/math733.out" 1726203792 330 f3fd9a14a5af07473f885cd9f3c2789f "pdflatex"
+  "aux/math733.toc" 1726203792 222 0094411bdec892307b91bf58cf1731f2 "pdflatex"
+  "math733.tex" 1726203790 19664 e609d44d1772f0c5f53ff0c3560df5de ""
   "math_commands.tex" 1725569877 14107 b67c02ff6921f0ca014d60ff950108d3 ""
   "preamble.sty" 1726168410 3674 2f0bb7e2f4b38364a0956a633474003f ""
   (generated)

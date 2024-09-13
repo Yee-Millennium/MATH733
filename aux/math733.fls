@@ -1,7 +1,7 @@
-PWD /Users/yee/Courses/24Fall/Math_733/Notes_733
+PWD /Users/yee/Courses/24Fall/Math_733/MATH733
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/math733.tex
-OUTPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.log
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/math733.tex
+OUTPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.log
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base/article.cls
@@ -901,10 +901,10 @@ INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3b
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.aux
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.aux
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.aux
-OUTPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.aux
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.aux
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.aux
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.aux
+OUTPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.aux
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
@@ -925,18 +925,18 @@ INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00m
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/graphics/color.sty
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-OUTPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.pdf
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-OUTPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+OUTPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.pdf
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+OUTPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pdflscape/pdflscape.sty
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pdflscape/pdflscape.sty
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pdflscape/pdflscape.sty
@@ -1020,9 +1020,9 @@ INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/pub
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmr12.tfm
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.toc
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.toc
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.toc
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.toc
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.toc
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.toc
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmsy10.tfm
@@ -1034,12 +1034,12 @@ INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/tfm/public
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/tfm/public/mathabx/mathx10.tfm
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbsy10.tfm
-OUTPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.toc
+OUTPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.toc
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmti10.tfm
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.aux
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
-INPUT /Users/yee/Courses/24Fall/Math_733/Notes_733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.aux
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
+INPUT /Users/yee/Courses/24Fall/Math_733/MATH733/aux/math733.out
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/public/mathabx/dpi480/mathx10.pk
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/public/mathabx/dpi480/mathx10.pk
 INPUT /Users/yee/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/public/mathabx/dpi600/matha6.pk
