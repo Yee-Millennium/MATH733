@@ -1,0 +1,488 @@
+\documentclass[11pt]{article}
+
+\usepackage{preamble}
+\input{math_commands.tex}
+
+\title{Notes of Math 733 Probability Theory}
+\author{YI WEI}
+\date{Sep 2024}
+
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+\section{Intro}
+\DATE{Sep 5,2024}
+
+\subsection{Probability Space}
+
+Setup (Undergraduate level):
+\begin{align*}
+    &\Omega \text{ sample space: set of all the individual outcomes} \\
+    &\mathcal{F}\text{ event space: appropriate collection of subsets of } \Omega\\
+    &P: \text{a function on a subsets of } \Omega, P(A)= \text{ the probability of the set (event) }A 
+\end{align*}
+
+\begin{axiom}
+    \begin{align*}
+        P(\bigcup_k A_k) = \sum_{k} P(A_k) \quad \text{whenever } {A_k} \text{ is a pairwise disjoint sequence of events} 
+    \end{align*}
+\end{axiom}
+
+\begin{example}
+    \, 
+
+    \begin{enumerate}
+        \item roll a dice: $ \Omega = \{1,2,3,4,5,6 \}$, 
+        $\mathcal{F} = \mathcal{P}(\Omega) = \text{ power set of }
+        \; \Omega = \text{ collection of all subset of} \; \Omega$
+        \item \# of customers to a service station in some fixed time interval 
+                \begin{align*}
+                    \Omega &= \mathbb{Z}_{\ge 0} \\
+                    \mathcal{F} &= \mathcal{P}(\Omega)\\
+                    P(k) &= e^{-\lambda }\frac{\lambda^k}{k!} \quad \text{for }k \in \Omega\\
+                    P(A) &= \sum_{k \in A} e^{-\lambda }\frac{\lambda^k}{k!} \quad \text{for } A \subseteq \Omega
+                \end{align*}
+        \item Choose uniformly random real number from $[0,1]$ \\
+                $P(x) = 0 \quad \forall \, x \in [0,1]$ \\
+                if $0 \le a < b \le 1$:
+                \begin{align*}
+                    P([a,b]) = b-a
+                \end{align*}
+        \item \label{example:1.1.4} 
+                Flip a fair coin for infinitly many times, $0 = \text{heads}, \, 1=\text{tails}$:
+                \begin{align*}
+                    &\Omega = \{0,1\}^{\mathbb{Z}_{\ge 0}} \\
+                    &P\{w: x_1 = a_1, x_2=a_2, \ldots , x_n = a_n\} = 2^{-n} \label{*} \tag{*}
+                \end{align*}
+                From this: $P\{w\} = 0 \quad \forall w \in \Omega$
+                \remark how to prove $\Omega$ is uncountable: diagonal principle
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $X$ be a space. A $\sigma$-algebra on $X$ is a collection $\mathcal{A}$ of subsets of $X$ that
+    satisfies these properties:
+    \begin{enumerate}
+        \item $\emptyset \in \mathcal{A}$
+        \item $A \in \mathcal{A} \Longrightarrow  A^C \in \mathcal{A}$
+        \item $\{A_k \}_{k=1}^{\infty} \Longrightarrow \bigcup_{k=1}^{\infty}A_k \in \mathcal{A}$ 
+    \end{enumerate}
+    And we call $(X, \mathcal{A})$ is a $\underline{\text{measurable space}}$.
+\end{definition}
+
+\begin{definition}
+    Given $(X, \mathcal{A})$
+    A measure is a function $u: \mathcal{A} \to [0, \infty]$ such that:
+    \begin{enumerate}
+        \item $P(\emptyset) = 0$
+        \item $u( \bigcup_{k}A_k) = \sum_{k=1}u(A_k)$ for a pairwise disjoint sequence $\{A_k\}_k \subseteq \mathcal{A}$
+    \end{enumerate}
+    $(X, \mathcal{A}, u)$ is a $\underline{\text{measure space}}$.
+\end{definition}
+
+\begin{definition}
+    If $X$ is a metric space, its $\underline{\text{Borel } \sigma\text{-algebra}} \,\, \mathcal{B}_{X}$ is by
+    definition the smallest $\sigma$-algebra containing all the OPEN subsets of $X$.
+\end{definition}
+
+\begin{definition}
+    $\underline{\text{Lebesgue measure}} \; m$ on $\mathbb{R}^d$ is the measure that satisfies 
+    \begin{align*}
+        m\Big( \prod_{i=1}^{d} [a_i,b_i]\Big) = \prod_{i=1}^{d} (b_i-a_i)
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    A $\underline{\text{probability space}} \; (\Omega, \mathcal{F}, P)$ is a measure space such that $P(\Omega) = 1$.
+\end{definition}
+
+\begin{example}
+    Example of product $\sigma$-algebra from example 1.1.~\ref{example:1.1.4}: \\
+    $\mathcal{F}$ = product $\sigma$-algebra $=$ samllest $\sigma$ -algebra that contains all sets of the type
+    \begin{align*}
+        \{w: x_1 = a_1, \ldots , x_{n} = a_{n}\} \quad , n \in \mathbb{Z}_{>0}, a_{1}, \ldots ,a_n \in \{0,1 \}.
+    \end{align*}
+    $P$ obtained from Eq.~\ref{*}
+\end{example}
+
+\begin{definition}
+    Let $(X, \mathcal{A}), \, (Y, \mathcal{B})$ be measurable space, and $f: X \to Y$ be a function.\\
+    We say $f$ is a $\underline{\text{measurable function}}$ if:
+    \begin{align*}
+        f^{-1}(B) = \{x \in X: f(x) \in \mathcal{B} \} \subseteq \mathcal{A}, \quad \forall B \in \mathcal{B}
+    \end{align*}
+    A $\underline{\text{random variable}} \; X$ is a measurable function:
+    \begin{align*}
+        X: (\Omega, \mathcal{F}) \to (\mathbb{R}, \mathcal{B}_{\mathbb{R}})
+    \end{align*}
+\end{definition}
+
+\begin{example}
+    flip of a fair coin $\Omega = \{ w = (x_1,x_2): x_1,x_2 \in \{0,1\}\}$, $0 = \text{heads}, \, 1=\text{tails}$:
+    \begin{align*}
+        X_1(w) &= x_1  \quad \text{outcome of the first flip}\\
+        X_2(w) &= x_2  \quad \text{outcome of the second flip}
+    \end{align*}
+    We define $Y(w) = X_1(w) + X_2(w)$ = \# of tails in the two flips \\
+    The information contained in $Y(w)$ is represented by $\sigma$-algebra generated by $Y$ defined as follows:
+    \begin{align*}
+        \varsigma(Y) &= \{\{Y \in B\}: B \in \mathcal{B}_{\mathbb{R}}\}\\
+        &= \Big\{\emptyset, \Omega, \{(0,0)\}, \{(0,1),(1,0) \} , \{(1,1)\} \text{ and the unions of these sets}\Big\} \subsetneq \mathcal{F}
+    \end{align*}
+\end{example}
+
+
+\DATE{Sep 10,2024}
+\begin{enumerate}
+    \item push-forward: $(X, \mathcal{A}, \mu)$ is a measure space, 
+    and $(Y, \mathcal{B})$ is a measurable space. And there is a $f: X \to Y$.
+    The push-forward of $\mu$ is the measure $v$ on $(Y, \mathcal{B})$ defined by $v(\mathcal{B}) =
+    u(f^{-1}(\mathcal{B}))$
+    \begin{remark}
+        Check $v$ is a measure.
+    \end{remark}
+
+    \item Absolute continuity: Let $\mu, \lambda$ be measures on $(X, \mathcal{A})$. Then $\mu$ is absolute
+    continuous w.r.t $\lambda$ if $\lambda(A) = 0 \Longrightarrow \mu(A) = 0 \quad \forall  A \in \mathcal{A}$.
+    \remark $\mu \ll \lambda$. If $\mu \ll \lambda$, then there exists a measurable function 
+    $f: X \to \mathbb{R}_{\ge 0}$ s.t. 
+    \begin{align*}
+        \mu(A) = \int_{A} f \, d \lambda \qquad \forall A \in \mathcal{A}
+    \end{align*}
+    This is called Radom-Nikodym derivative $f(x) = \frac{d \mu}{d \lambda}(x)$
+\end{enumerate}
+
+\begin{definition}
+    Let $X: (\Omega, \mathcal{F}, P) \to (\mathbb{R}, \mathcal{B}_{\mathbb{R}})$ be a random variable.
+    The $\underline{\text{distribution}}$ of $X$ is the $\mu = P \circ X^{-1}$, i.e.,
+    \begin{align*}
+        \mu (B) = P\{w \in \Omega: X(w) \in B\} \qquad \text{for } B \in \mathcal{B}
+    \end{align*}
+    In short: $P\{X \in B\} = P(X \in B)$
+\end{definition}
+
+\begin{definition}
+    The CDF of $X$ is the function $F$ on $\mathbb{R}$ defined by 
+    \begin{align*}
+        F(x) = P(X \le x) = \mu(-\infty,x]
+    \end{align*}
+\end{definition}
+\begin{definition}
+    If $\mu \ll $ Lebegue measure, then $X$ has a density function $f$ which satisfies 
+    \begin{align*}
+        P(a < X \le b) = \int _{a}^{b} f(x) \, dx = \mu(a,b] = F(b) - F(a)
+    \end{align*}
+\end{definition}
+
+\begin{remark}
+    A $\underline{\text{discrete random variable}}$ has at most countably many values, and since individual pts have
+    positive probability
+    \begin{align*}
+        \mu {k} = P(X=k) > 0 = leb\{x\}
+    \end{align*}
+    Then we know $\mu \ll $Leb fails and X has no density function.
+\end{remark}
+
+
+\begin{definition}
+    The $\underline{\text{expectation}}$ of a r.v. $X$ is defined by 
+    \begin{align*}
+        EX = \int_{\Omega} X \, dP
+    \end{align*}
+    \begin{remark}
+        Abstract Lebesgue integral on $(\Omega, \mathcal{F}, P)$
+    \end{remark}
+\end{definition}
+
+% \begin{definition}
+%     If $A \in \mathcal{F}$ is an event, its indicator r.v. is 
+%     \begin{align*}
+%         \1 _{A}(w) = 
+%         \begin{cases}
+%             \item 0, w \not A 
+%             \item 1, w \in A
+%         \end{cases}
+%     \end{align*}
+% \end{definition}
+\begin{definition}
+    If $A \in \mathcal{F}$ is an event, its indicator random variable is 
+    \[
+    \1 _{A}(w) = 
+    \begin{cases} 
+        1, & \text{if } w \in A, \\
+        0, & \text{if } w \notin A.
+    \end{cases}
+    \]
+\end{definition}
+
+We know 
+\begin{align*}
+    E[\1_{A}] &= 0 \cdot P\{\1_{A} = 0\} + 1 \cdot  P\{\1_{A} = 1\}\\
+    &= P(A)
+\end{align*}
+
+\begin{example}
+    \item $X \sim Poisson(\lambda) \Longrightarrow E[g(X)] = \sum_{k=0}^{\infty} g(k) 
+    \frac{e^{-\lambda}\lambda^k}{k!}$
+    \item $X \sim  Exp(\lambda) \Longrightarrow E[g(X)] = \int_{0}^{\infty} g(x) \lambda 
+    e^{-\lambda } \mathrm{d}x$
+\end{example}
+
+
+\begin{theorem}
+    \,
+
+    $\underline{\text{Key result}}$: 
+    $$E[f(X)] := \int_{\Omega}f(X)  \mathrm{d}P = \int_{\mathbb{R}}f \, d \mu$$
+
+    Here: $X$ is a r.v. on $(\Omega, \mathcal{F}, P)$, $\mu = P \circ X^{-1}=$ distribution of $X$ ,
+    $f: \mathbb{R} \to \mathbb{R}$ is a Borel function $f(X(w)) = (f \circ X)(w)$
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $f = \1_{B}, B \in \mathcal{B}_{\mathbb{R}}$.
+        \begin{remark}
+            $\int_{\Omega} \1_{B}(X(w))  P(\mathrm{d}w)$ (same as $dP(w)$)
+            \begin{align*}
+                \int_{\Omega} \1_{B}(X(w))  P(\mathrm{d}w) &= \int_{\Omega}\1_{X^{-1}(\mathcal{B})}(w)\mathrm{d}x\\
+                &= P(X^{-1}(B)) = \mu(B) = \int_{\mathbb{R}} \1_{B} d \mu
+            \end{align*}
+        \end{remark}
+        \item $f = \sum_{i=1}^{n} a_{i} \1_{B_{i}}$, $a_1, \ldots ,a_n \in \mathbb{R}$, $B_1, \ldots ,B_n \in \mathcal{B}_{\mathbb{R}}$
+        \begin{align*}
+            \int_{\Omega} \sum_{i=1}^{n}a_{i}\1_{B_i}(X) \, dP \\
+            &= \sum_{i=1}^{n}a_{i}  \int_{\Omega} \1_{B_i}(X) \, dP\\
+            &= \sum_{i=1}^{n}a_i \int_{\mathbb{R}} \1_{B_i}\, d \mu \\
+            &= \int_{R} \sum_{i=1}^{n}a_i \1_{B_i} \, d \mu
+        \end{align*}
+        \item $f \ge 0, \exists $ simple function $0 \le f_n $
+        \begin{align*}
+            \int _{\Omega} f(X) \, dP &= \lim_{n \to \infty} \int_{\Omega} f_n(X) \, dP \qquad (M.C.T.)\\
+            &= \lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d \mu \\
+            &= \int_{\mathbb{R}} f \, d \mu
+        \end{align*}
+        \begin{remark}
+            $f_n(x) = \sum_{k=0}^{n(2^n - 1)} \frac{k}{2^n} \1 \{\frac{k}{2^n} \le f(x) < \frac{k+1}{2^n}\}
+            + n \1 \{ f(x) > n\}$
+        \end{remark}
+        \item For general $f: \mathbb{R} \to \mathbb{R} = f^{+} - f^{-}$ Borel function where $f^{+}, f^{-} \ge 0$
+        \begin{align*}
+            \int _{\Omega} f(X) \, dP &= \int _{\Omega} f^{+}(X) \, dP - \int _{\Omega} f^{-}(X) \, dP\\
+            &= \int _{\mathbb{R}} f^{+} \, d \mu - \int _{\mathbb{R}} f^{-} \, d \mu \\
+            &= \int_{\mathbb{R}} f \, d \mu
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item $X \sim Possion(\lambda)$, $\mu = $ distribution of $X$.
+        We know $\mu(B) = \sum_{k: k\in B} e^{-\lambda} \frac{\lambda^k}{k!} \Longrightarrow
+        \mu(\mathbb{R} \setminus{\mathbb{Z}_{\ge 0}})= 0$. Then we have:
+        \begin{align*}
+            E[e^{-tX}] &= \int_{\mathbb{R}} e^{-tx} \mu(dx)\\
+            &=\int_{\mathbb{Z}_{\ge 0}} e^{-tx} \mu(dx) \\
+            &= \sum_{k \in \mathbb{Z}_{k\ge 0}} \int_{\{k\}} e^{-tx} \, \mu(dx)\\
+            &= \sum_{k \ge 0} e^{-tk} e^{-\lambda} \frac{\lambda^k}{k!}\\
+            &= e^{-\lambda} e^{\lambda e^{-t}} \\
+            &= e^{\lambda(e^{-t}-1)}
+        \end{align*}
+        \item $X \sim Exp(\lambda)$
+        \begin{align*}
+            E[e^{-tX}] &= \int_{\mathbb{R}} e^{-tx} \, \mu(dx) = \int_{[0, \infty)} e^{-tx} \lambda e^{-\lambda x} \, dx \\
+            &= \lim_{M \to \infty} \int_{[0,M]} \lambda e^{-(t+\lambda)x} \, dx = \lim_{M \to \infty}
+            R \int_{0}^{M} \lambda e^{-(t+\lambda)x} \mathrm{d}x\\
+            &= \lim_{M \to \infty} (-\frac{\lambda}{t+\lambda}) e^{-(t+\lambda)x} |^M_{0} \\
+            &= \lim_{M \to \infty} \Big( (-\frac{\lambda}{t+\lambda}) e^{-(t+\lambda)M} + \frac{\lambda}{t+\lambda} \Big)\\
+            &= \frac{\lambda}{t+\lambda}
+        \end{align*}
+    \end{enumerate}
+\end{example}
+
+\DATE{Sep 12, 2024}
+\subsection{Independence}
+
+Perhaps you recall this: events $A$ and $B$ are independent if $P(A \cap B) = P(A)P(B)$
+
+\begin{definition}
+    Let $\Omega, \mathcal{F}, P$ be a probability space. 
+
+    Let $\mathcal{F}_1, \ldots ,\mathcal{F}_n$ be sub-$\sigma$-algebra of $\mathcal{F}$. (Means
+    each $\mathcal{F}_i$ is a $\sigma$-algebra and $\mathcal{F}_i \subseteq \mathcal{F}$)
+
+    Then we say $\mathcal{F}_1, \ldots ,\mathcal{F}_n$ are independent if $\forall A_1 \in \mathcal{F}_1,
+    A_2 \in \mathcal{F}_2, \ldots ,A_n \in \mathcal{F}_n$, then
+    \begin{align*}
+        P(\bigcap_{i=1}^{n} A_i) = \prod_{i=1}^{n}P(A_i) 
+    \end{align*}
+    Now r.v.'s $X_1, \ldots ,X_n$ on $\Omega$ are independent if the $\sigma$-algebra 
+    $\sigma(X_1), \ldots ,\sigma(X_n)$ are independent. Equivalently, $\forall $ measurable 
+    sets in the range space,
+    \begin{align*}
+       P(\bigcap_{i=1}^{n}\{X_{i} \in B_i\}) = \prod_{i=1}^{n} P\{X_{i} \in B_i\} 
+    \end{align*}
+\end{definition}
+
+Events $A_1, \ldots ,A_n$ are independent if the r.v.'s $\1_{A_1}, \ldots ,\1_{A_n}$ are independent.
+
+And arbitrary collection $\{\mathcal{F}_{\beta}: \beta \in \mathcal{J}\}$ of sub-$\sigma$-algebra is independent if
+$\forall \text{distinct } \beta_1, \ldots ,\beta_{n} \in \mathcal{J}$, $\mathcal{F}_{\beta_{1}}, \ldots ,\mathcal{F}_{\beta_{n}}$
+are independent.
+
+\begin{remark}
+    $\underline{\text{Fact:}}$ $X_1, \ldots ,X_n$ are independent, then so are 
+    $f_1(X_1), \ldots ,f_n(X_n)$
+\end{remark}
+
+\begin{remark}
+    Why product?
+
+    $X,Y$ discrete r.v.'s. We're interested in the event $\{X=k\}$. Suppose we learn that $Y=m$.
+    We replace P with $P(\cdot , Y=m)$ defined by $P(A| Y=m) = \frac{P(A \bigcap \{Y=m\})}{P(Y=m)}$
+
+    When is $P(X=k) = P(X=k | Y=m)$?
+
+    \begin{align*}
+        P(X=k) &= P(X=k | Y=m)\\
+        \iff P(X=k)P(Y=m) &= P(X=k,Y=m)
+    \end{align*}
+\end{remark}
+
+We need some notions/tool to check easily if two r.v.'s are independent.
+\begin{enumerate}
+    \item Develop a simpler criterion for checking independence of a given collection of r.v.'s.
+    \item To construct a probability space with desired independent r.v.'s.
+\end{enumerate}
+
+\begin{example}
+    Let $X_1, X_2,X_3$ be independent $Bernolli(p)$ r.v.'s.
+    \begin{align*}
+        P(X_{i} = 1) = p = 1-P(X_{i} = 0)
+    \end{align*}
+    Consider the following events:
+    \begin{equation*}
+        \begin{cases} 
+        \{X_1 + X_2 = 1\}\\ 
+        \{X_2+X_3 = 1 \}  
+        \end{cases}
+    \end{equation*}
+    Firstly we have:
+    \begin{align*}
+        P(X_1 + X_2 = 1) = P(01) + P(10) = 2p(1-p) = P(X_2+X_3 = 1)
+    \end{align*}
+    And we have:
+    \begin{align*}
+        P(X_1+X_2=1, X_2+X_3=1) = P(101) + P(010) = p^{2}(1-p) + p(1-p)^2 = p(1-p)
+    \end{align*}
+    If the two events and independent, we have:
+    \begin{align*}
+        P(X_1+X_2=1, X_2+X_3=1) &= P(X_1 + X_2 = 1) \cdot P(X_2+X_3 = 1)\\
+        \iff p(1-p) &= 4p^{2}(1-p)^{2} \\
+        \iff p(1-p) &= \frac{1}{4}, \; p =0,\; \text{or} \; p=1 \\
+        \iff p &= \frac{1}{2},\; 0,\; \text{or} \; 1
+    \end{align*}
+\end{example}
+
+
+\begin{theorem}
+    \label{theorem:1.3}
+    Let $\mathcal{A}_{1}, \ldots ,\mathcal{A}_{n}$ be subcollection of $\mathcal{F}$,
+    Assume that each $\mathcal{A}_{i}$ is closed under intersection, which means 
+    $(A,B \in \mathcal{A}_{i} \Longrightarrow A \bigcap B \in \mathcal{A}_{i})$ and $\Omega \in \mathcal{A}_{i}$.
+    Assume that the probability $P(\bigcap_{i=1}^{n} A_{i}) = \prod_{i=1}^{n}P(A_i) \quad
+    \forall A_1 \in \mathcal{A}_{1}, \ldots ,A_n \in \mathcal{A}_{n}$. Then the $\sigma$-algebra 
+    $\sigma(\mathcal{A}_{1}), \ldots ,\sigma(\mathcal{A}_{n})$ are independent.
+\end{theorem}
+\begin{example}
+    \,
+
+    The basis of Borel-algebra.
+    $A_i = \{(a,b): -\infty < a < b <\infty\}$, then $\sigma(A_{i}) = \mathcal{B}_{\mathbb{R}}$.
+
+    Or you can take $(-\infty, b]$
+\end{example}
+
+The tool for proving the thm: $\underline{\text{Dynkin's} \pi-\lambda \text{theorem}}$.
+
+\begin{definition}
+    Let $\mathcal{A}$ be a collection of subset of $\Omega$
+    \begin{enumerate}
+        \item $\mathcal{A}$ is a $\pi$-system if it is closed under intersections.
+        \item $\mathcal{A}$ is a $\lambda$-system if it has the following three properties:
+        \begin{enumerate}
+            \item $\Omega \in \mathcal{A}$
+            \item $\forall A,B \in \mathcal{A}$ and $A \subseteq B \Longrightarrow B \setminus A \in \mathcal{A}$
+            \item If $A_1 \subseteq A_2 \cdots \subseteq A_n \subseteq 
+            \cdots$ and each $A_{i} \in \mathcal{A}$, then
+            $\bigcup_{i=1}^{\infty} A_{i} \in \mathcal{A}$
+        \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    \label{theorem:1.4}
+    Suppose $\mathcal{P}$ is a $\pi$-system, $\mathcal{L}$ is a $\lambda$-system and $\mathcal{P} \subseteq \mathcal{L}$,
+    then $\sigma(\mathcal{P}) \subseteq \mathcal{L}$
+\end{theorem}
+
+We use theorem~\ref{theorem:1.4} to prove theorem~\ref{theorem:1.3}.
+
+\begin{proof}[Proof of theorem 1.3:]
+    Fix $A_2 \in \mathcal{A}_{2}, \ldots ,A_n \in \mathcal{A}_{n}$, set 
+    $\mathcal{F} = A_2 \bigcap \cdots \bigcap A_n$
+    \begin{align*}
+        \mathcal{L} = \{ A \in \mathcal{F}: P(A \bigcap F) = P(A)P(F) \}
+    \end{align*}
+    \begin{claim}
+        $\mathcal{A}_1 \subseteq \mathcal{L}$
+        \begin{proof}[proof of claim 1.1]
+            Check that $P(F) = \prod_{i=2}^{n}P(A_{i}) $
+
+            Take $A_1 = \Omega$
+
+            Let $A_1 \in \mathcal{A}_{1}$. $P(A_{1} \bigcap F) = P(\bigcap_{i=1}^{n}A_{i})
+            = \prod_{i=1}^{n}P(A_{i}) = P(A_{i})P(F) $
+        \end{proof}
+    \end{claim}
+    \begin{claim}
+        $\mathcal{L}$ is a $\lambda$-system.
+        \begin{proof}[proof of claim 1.2]
+            \begin{enumerate}
+                \item $\Omega \in \mathcal{A}_{1} \subseteq \mathcal{L}$
+                \item Let $A,B \in \mathcal{L}, A \subseteq B$. We want $B\setminus A \in \mathcal{L}$.
+                \begin{align*}
+                    P((B\setminus A \bigcap F)) = P((B \bigcap F)\setminus(A \bigcap F))
+                    = P(B \bigcap F) - P(A \bigcap F)
+                \end{align*}
+                \item Let $\mathcal{L} \ni A_{i} \nearrow A.$. We want: $A \in \mathcal{L}$
+                \begin{align*}
+                    P(A\bigcap F) = \lim_{n \to \infty}P(A_n \bigcap F) \qquad \text{because }
+                    A_n \bigcap F \nearrow A\bigcap F
+                \end{align*}
+            \end{enumerate}
+            We've checked that $\mathcal{L}$ is a $\lambda$-system. So $\sigma(A_1) \subseteq \mathcal{L}$
+
+        \end{proof}
+    \end{claim}
+    Thus $P(\bigcap _{i=1}^{n} A_i) = \prod_{i=1}^{n} P(A_{i}) \qquad \forall 
+     A_1 \in \sigma(\mathcal{A}_1), A_2 \in \mathcal{A}_{2}, \ldots ,A_n \in \mathcal{A}_{n}$
+
+     We can use the same argument to upgrade each $\mathcal{A}_i$ in turn to $\sigma(\mathcal{A}_{i})$.
+     At the end we have the product properties for all members of $\sigma(\mathcal{A}_{1}), \ldots ,
+     \sigma(\mathcal{A}_{n})$
+\end{proof}
+
+\begin{corollary}
+    $\mathbb{R}$-valued r.v.'s $X_1, \ldots ,X_n$ are independent iff 
+    \begin{align*}
+        P(\bigcap _{i=1}^{n}\{ X_{i} \le s_i \}) = \prod_{i=1}^{n}P\{ X_{i} \le s_i \} 
+    \end{align*}
+\end{corollary}
+
+
+\end{document}

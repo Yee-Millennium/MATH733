@@ -1,0 +1,116 @@
+\ProvidesPackage{preamble}
+
+% Extract
+% \usepackage[active,
+%             generate=analysis_definitions,
+%             %extract-cmd={section},
+%             extract-env={definition,algorithm}]{extract}
+
+% \usepackage[active,
+%             generate=analysis_theorems,
+%             %extract-cmd={section},
+%             extract-env={theorem,corollary,claim}]{extract}
+
+% \begin{extract*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% AMS
+\usepackage{amsmath, amssymb, amsthm, amsbsy, mathabx}
+% Geometry
+\usepackage[margin=1in]{geometry} % For page margins
+\usepackage{setspace} % For double spacing
+% Figures
+\usepackage{graphicx}
+\usepackage{float}
+% algos
+% \usepackage[linesnumbered, lined, ruled]{algorithm2e}
+%Refs
+\usepackage[colorlinks,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+
+% Colors
+\usepackage[dvipsnames]{xcolor}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{forestgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{red}{RGB}{163,21,37}
+\definecolor{blue}{RGB}{22,66,180}
+\definecolor{lightblue}{RGB}{75,136,162}
+\definecolor{green}{RGB}{121,180,115}
+\definecolor{purple}{RGB}{75,41,107}
+
+% Bibliography
+\usepackage[round]{natbib}
+
+% PDFs
+\usepackage{pdfpages}
+
+% Subfiles
+\usepackage{subfiles}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Environments
+
+\theoremstyle{definition}
+\newtheorem{theorem}{\color{blue}{\textbf{Theorem}}}[section]
+\newtheorem{claim}[theorem]{\color{blue}{\textbf{Claim}}}
+\newtheorem{lemma}[theorem]{\color{blue}{\textbf{Lemma}}}
+\newtheorem{proposition}[theorem]{\color{blue}{\textbf{Proposition}}}
+\newtheorem{corollary}[theorem]{\color{blue}{\textbf{Corollary}}}
+\newtheorem{axiom}[theorem]{\color{blue}{\textbf{Axiom}}}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{\color{Violet}{\textbf{Problem}}}
+\newtheorem{calculation}[theorem]{Calculation}
+
+\theoremstyle{definition}
+\newtheorem{definition}{\color{RedOrange}{\textbf{Definition}}}[section]
+\newtheorem{example}{\color{purple}Example}[section]
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{condition}[assumption]{Condition}
+\newtheorem*{solution}{\color{black}Solution}
+%\newenvironment{solution}[1][\proofname]{%
+% \proof[\bf \color{Goldenrod}Solution to #1]%
+% }{\endproof} %
+
+\newtheorem{exercise}{\color{ruby}Exercise}[section]
+
+% Literature Summary Standards
+\newtheorem*{motivation}{Motivation}
+\newtheorem*{question}{Research Question}
+\newtheorem*{summary}{Summary}
+\newtheorem*{remark}{\color{brown}Remark}
+\newtheorem*{model}{Model}
+\newtheorem*{data}{Data}
+\newtheorem*{emethod}{Empirical Methodology}
+\newtheorem*{tresults}{Theoretical Results}
+\newtheorem*{eresults}{Empirical Results}
+\newtheorem*{interpretation}{Interpretation}
+\newtheorem*{litconnect}{Place in Literature}
+\newtheorem*{lit}{Literature}
+\newtheorem*{limitations}{Limitations}
+\newtheorem*{extend}{Extensions}
+\newtheorem*{policy}{Policy}
+\newtheorem*{proofstr}{Proof Strategy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Matrix columns
+\setcounter{MaxMatrixCols}{10}
+% So pages will break inside long equation environments
+\allowdisplaybreaks
+% Font
+\linespread{1.5}
+\usepackage{setspace}
+\onehalfspacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% argmax and argmin
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
