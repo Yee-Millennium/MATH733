@@ -3,7 +3,7 @@
 \usepackage{preamble}
 \input{math_commands.tex}
 
-\title{Notes of Math 733 Probability Theory\\ Prof. Timo Seppäläinen}
+\title{Notes of Math 733: Probability Theory\\ Instructor: Timo Seppäläinen}
 \author{YI WEI}
 \date{Sep 2024}
 
@@ -244,10 +244,12 @@ We know
     $f: \mathbb{R} \to \mathbb{R}$ is a Borel function $f(X(w)) = (f \circ X)(w)$
 \end{theorem}
 \begin{proof}
+    \,
+
     \begin{enumerate}
         \item $f = \1_{B}, B \in \mathcal{B}_{\mathbb{R}}$.
         \begin{remark}
-            $\int_{\Omega} \1_{B}(X(w))  P(\mathrm{d}w)$ (same as $dP(w)$)
+            Notation: $\int_{\Omega} \1_{B}(X(w))  P(\mathrm{d}w)$ (same as $dP(w)$)
             \begin{align*}
                 \int_{\Omega} \1_{B}(X(w))  P(\mathrm{d}w) &= \int_{\Omega}\1_{X^{-1}(\mathcal{B})}(w)\mathrm{d}x\\
                 &= P(X^{-1}(B)) = \mu(B) = \int_{\mathbb{R}} \1_{B} d \mu
@@ -255,7 +257,7 @@ We know
         \end{remark}
         \item $f = \sum_{i=1}^{n} a_{i} \1_{B_{i}}$, $a_1, \ldots ,a_n \in \mathbb{R}$, $B_1, \ldots ,B_n \in \mathcal{B}_{\mathbb{R}}$
         \begin{align*}
-            \int_{\Omega} \sum_{i=1}^{n}a_{i}\1_{B_i}(X) \, dP \\
+            \int_{\Omega} \sum_{i=1}^{n}a_{i}\1_{B_i}(X) \, dP 
             &= \sum_{i=1}^{n}a_{i}  \int_{\Omega} \1_{B_i}(X) \, dP\\
             &= \sum_{i=1}^{n}a_i \int_{\mathbb{R}} \1_{B_i}\, d \mu \\
             &= \int_{R} \sum_{i=1}^{n}a_i \1_{B_i} \, d \mu
@@ -384,7 +386,7 @@ We need some notions/tool to check easily if two r.v.'s are independent.
         P(X_1+X_2=1, X_2+X_3=1) &= P(X_1 + X_2 = 1) \cdot P(X_2+X_3 = 1)\\
         \iff p(1-p) &= 4p^{2}(1-p)^{2} \\
         \iff p(1-p) &= \frac{1}{4}, \; p =0,\; \text{or} \; p=1 \\
-        \iff p &= \frac{1}{2},\; 0,\; \text{or} \; 1
+        \iff p = \frac{1}{2},\; &0,\; \text{or} \; 1
     \end{align*}
 \end{example}
 
@@ -399,15 +401,14 @@ We need some notions/tool to check easily if two r.v.'s are independent.
     $\sigma(\mathcal{A}_{1}), \ldots ,\sigma(\mathcal{A}_{n})$ are independent.
 \end{theorem}
 \begin{example}
-    \,
-
     The basis of Borel-algebra.
     $A_i = \{(a,b): -\infty < a < b <\infty\}$, then $\sigma(A_{i}) = \mathcal{B}_{\mathbb{R}}$.
 
     Or you can take $(-\infty, b]$
 \end{example}
 
-The tool for proving the thm: $\underline{\text{Dynkin's} \pi-\lambda \text{theorem}}$.
+\vspace*{5mm}
+The tool for proving the theorem: $\underline{\text{Dynkin's} \;\pi-\lambda \text{ theorem}}$.
 
 \begin{definition}
     Let $\mathcal{A}$ be a collection of subset of $\Omega$
@@ -429,9 +430,9 @@ The tool for proving the thm: $\underline{\text{Dynkin's} \pi-\lambda \text{theo
     Suppose $\mathcal{P}$ is a $\pi$-system, $\mathcal{L}$ is a $\lambda$-system and $\mathcal{P} \subseteq \mathcal{L}$,
     then $\sigma(\mathcal{P}) \subseteq \mathcal{L}$
 \end{theorem}
-
 We use theorem~\ref{theorem:1.4} to prove theorem~\ref{theorem:1.3}.
 
+\vspace*{7mm}
 \begin{proof}[Proof of theorem 1.3:]
     Fix $A_2 \in \mathcal{A}_{2}, \ldots ,A_n \in \mathcal{A}_{n}$, set 
     $\mathcal{F} = A_2 \bigcap \cdots \bigcap A_n$
@@ -440,7 +441,7 @@ We use theorem~\ref{theorem:1.4} to prove theorem~\ref{theorem:1.3}.
     \end{align*}
     \begin{claim}
         $\mathcal{A}_1 \subseteq \mathcal{L}$
-        \begin{proof}[proof of claim 1.1]
+        \begin{proof}[Proof of claim 1.5]
             Check that $P(F) = \prod_{i=2}^{n}P(A_{i}) $
 
             Take $A_1 = \Omega$
@@ -451,7 +452,7 @@ We use theorem~\ref{theorem:1.4} to prove theorem~\ref{theorem:1.3}.
     \end{claim}
     \begin{claim}
         $\mathcal{L}$ is a $\lambda$-system.
-        \begin{proof}[proof of claim 1.2]
+        \begin{proof}[Proof of claim 1.6]
             \begin{enumerate}
                 \item $\Omega \in \mathcal{A}_{1} \subseteq \mathcal{L}$
                 \item Let $A,B \in \mathcal{L}, A \subseteq B$. We want $B\setminus A \in \mathcal{L}$.
@@ -469,7 +470,9 @@ We use theorem~\ref{theorem:1.4} to prove theorem~\ref{theorem:1.3}.
 
         \end{proof}
     \end{claim}
-    Thus $P(\bigcap _{i=1}^{n} A_i) = \prod_{i=1}^{n} P(A_{i}) \qquad \forall 
+    We continue the proof of theorem 1.4:
+
+    Then $P(\bigcap _{i=1}^{n} A_i) = \prod_{i=1}^{n} P(A_{i}) \qquad \forall 
      A_1 \in \sigma(\mathcal{A}_1), A_2 \in \mathcal{A}_{2}, \ldots ,A_n \in \mathcal{A}_{n}$
 
      We can use the same argument to upgrade each $\mathcal{A}_i$ in turn to $\sigma(\mathcal{A}_{i})$.
