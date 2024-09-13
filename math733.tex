@@ -60,7 +60,9 @@ Setup (Undergraduate level):
                     &P\{w: x_1 = a_1, x_2=a_2, \ldots , x_n = a_n\} = 2^{-n} \label{*} \tag{*}
                 \end{align*}
                 From this: $P\{w\} = 0 \quad \forall w \in \Omega$
-                \remark how to prove $\Omega$ is uncountable: diagonal principle
+                \begin{exercise}
+                    how to prove $\Omega$ is uncountable: diagonal principle
+                \end{exercise}
     \end{enumerate}
 \end{example}
 
@@ -143,9 +145,9 @@ Setup (Undergraduate level):
     and $(Y, \mathcal{B})$ is a measurable space. And there is a $f: X \to Y$.
     The push-forward of $\mu$ is the measure $v$ on $(Y, \mathcal{B})$ defined by $v(\mathcal{B}) =
     u(f^{-1}(\mathcal{B}))$
-    \begin{remark}
+    \begin{exercise}
         Check $v$ is a measure.
-    \end{remark}
+    \end{exercise}
 
     \item Absolute continuity: Let $\mu, \lambda$ be measures on $(X, \mathcal{A})$. Then $\mu$ is absolute
     continuous w.r.t $\lambda$ if $\lambda(A) = 0 \Longrightarrow \mu(A) = 0 \quad \forall  A \in \mathcal{A}$.
@@ -336,10 +338,10 @@ And arbitrary collection $\{\mathcal{F}_{\beta}: \beta \in \mathcal{J}\}$ of sub
 $\forall \text{distinct } \beta_1, \ldots ,\beta_{n} \in \mathcal{J}$, $\mathcal{F}_{\beta_{1}}, \ldots ,\mathcal{F}_{\beta_{n}}$
 are independent.
 
-\begin{remark}
+\begin{claim}
     $\underline{\text{Fact:}}$ $X_1, \ldots ,X_n$ are independent, then so are 
     $f_1(X_1), \ldots ,f_n(X_n)$
-\end{remark}
+\end{claim}
 
 \begin{remark}
     Why product?
@@ -401,10 +403,11 @@ We need some notions/tool to check easily if two r.v.'s are independent.
     $\sigma(\mathcal{A}_{1}), \ldots ,\sigma(\mathcal{A}_{n})$ are independent.
 \end{theorem}
 \begin{example}
-    The basis of Borel-algebra.
+    Collection of sets which can generate Borel-algebra:
+
     $A_i = \{(a,b): -\infty < a < b <\infty\}$, then $\sigma(A_{i}) = \mathcal{B}_{\mathbb{R}}$.
 
-    Or you can take $(-\infty, b]$
+    Or you can take $(-\infty, b]$ ......
 \end{example}
 
 \vspace*{5mm}
