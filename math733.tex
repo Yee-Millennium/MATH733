@@ -498,5 +498,191 @@ We use theorem~\ref{theorem:2.3} to prove theorem~\ref{theorem:2.2}.
     \end{align*}
 \end{corollary}
 
+\DATE{Sep 17, 2024}
+
+Today:
+\begin{equation*}
+    \text{Independent r.v's}
+    \begin{cases} 
+    \text{product measure}\\ 
+    \text{convolutions}   
+    \end{cases}
+\end{equation*}
+
+\subsection{product measures}
+\begin{definition}
+    Suppose $(X_1, \mathcal{A}_1, \mu_1), \ldots ,(X_n,\mathcal{A}_n,\mu_n)$ are $\sigma$-finite measure spaces.
+    The $\underline{\text{product}}$ measure space $(X,\mathcal{A},\mu)$ is defined as follows:
+    \begin{align*}
+        &X = \prod_{i=1}^{n} X_{i} = \text{ the Cartesian product, } \mathcal{A} = \text{ product }\sigma-algebra
+        = \otimes_{i=1}^{n}\mathcal{A}_i = \sigma \{ A_1\times \cdot \times A_n: A_i \in \mathcal{A}_i \}\\
+        &\mu = \text{product measure} = \otimes_{i=1}^{n}\mu_i = \text{ by def the unique measure }\mu \text{ on }
+        \mathcal{A} \text{ such that }\\
+        &\hspace*{15mm} \mu(A_1 \times \cdot  \times A_n) = \prod_{i=1}^{n}\mu_i(A_i) 
+        \quad \forall A_1 \in \mathcal{A}_1, \ldots ,
+        A_n \in \mathcal{A}_n 
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Tonelli-Fubini Theorem]
+    \,
+
+    $(n=2)$: $\int_{X \times Y} f(x,y) \mu \otimes v (dx,dy) = \int_{Y}[\int_{X}f(x,y)\, \mu(dx)]v(dy)$
+\end{theorem}
+
+Suppose each $X_{i}$ is a metric space w.r.t $\mathcal{B}_{X_{i}}$; also $X$ is a 
+metric space w.r.t $\mathcal{B}_{X}$. Relationship of $\otimes_{i=1}^{n}\mathcal{B}_{X_{i}}$ $\&$ $\mathcal{B}_{X}$.
+
+Take $n=2$: $\mathcal{B}_{X} \otimes \mathcal{B}_{Y} = \sigma \{ A \times B: A \in \mathcal{B}_{X},
+B \in \mathcal{B}_{Y} \} = \sigma\{\underbrace{A \times B}_{\text{open set in } X \times Y}:A
+ \subseteq X \text{ open, }B \subseteq Y \text{ open } \}$ 
+
+\begin{definition}
+    Separable metric space has a countable dense subset.
+\end{definition}
+
+\begin{example}
+    \,
+
+    \begin{enumerate}
+        \item $\mathbb{R}^{d}$
+        \item $C[0,1]$
+        \item $C([0,\infty])$: here the metric $d(f,g) = \sup_{0 \le x < \infty}|f(x) - g(x)|$ makes not separable!\\
+        But $d(f,g) = \sum_{n=1}^{\infty}2^{-n}(\sup_{0\le x\le n}|f(x) - g(x)| \land 1)$
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}[Proposition 1.5 in Folland]
+    \,
+
+    $\underline{\text{Fact}}$: If $X,Y$ are separable metric spaces, then $\mathcal{B}_{X} \otimes \mathcal{B}_{Y}
+    = \mathcal{B}_{X\times Y}$
+\end{theorem}
+
+\begin{remark}
+    reference: Richard M. Dudley: Real Analysis and Probability, Prop 4.1.7
+\end{remark}
+
+
+\begin{definition}
+    Suppose $X_1, \ldots ,X_n$ are r.v.'s on $(\Omega, \mathcal{F}, P)$. Let $\mu_i(B) = P(X_{i} \in B),
+\, B \in \mathcal{B}_{\mathbb{R}}$ be the distribution (marginal distribution of $X_{i}$) of $X_{i}$
+
+$ X = (X_1, \ldots ,X_n)$ is an $\mathbb{R}^{n}$-valued random variable and its distribution (joint distribution
+of $X_1, \ldots ,X_n$)
+is a probability measure $\mu$
+on $\mathbb{R}^{n}$.
+\end{definition}
+
+
+\begin{theorem}
+    $X_1, \ldots ,X_n \text{ independet }\iff \mu = \otimes_{i=1}^{n}\mu_i$
+\end{theorem}
+\begin{proof}
+    \,
+
+    \begin{enumerate}
+        \item $\Longrightarrow$:
+        Let $A_1 \times \cdots \times A_n \in \mathcal{B}_{\mathbb{R}^{n}}$.
+        \begin{align*}
+            \mu(A_1 \times \cdots \times A_n) = P\{ (X_1, \ldots ,X_n) \in A_1 \times \cdots\times A_n \}\\
+            = P\{ X_1 \in A_1, \ldots ,X_n \in A_n \} 
+                = \prod_{i=1}^{n}P(X_{i} \in A_i) 
+                = \prod_{i=1}^{n}\mu_i(A_i). \\
+            \pi-\lambda \text{ thm} \Longrightarrow \mu = \otimes_{i=1}^{n}\mu_i
+        \end{align*}
+        \item $\Longrightarrow$ Similar
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    If $E|f_i(X_{i})| < \infty$ for $i=1, \ldots n$, $X_1, \ldots ,X_n$ independent, then
+    \begin{align*}
+        E\Big[\prod_{i=1}^{n}f_i(x_i)  \Big] = \prod_{i=1}^{n}E\Big[f_i(X_{i})\Big] 
+    \end{align*}
+\end{corollary}
+\begin{proof}
+    Note that when $X_1, \ldots ,X_n$ are independent, then $f(X_1), \ldots ,f(X_n)$ are independent.
+
+    Take $n=2$. Let $\mu_i = P \circ X_{i}^{-1}$
+    \begin{align*}
+        E[f_1(X_{i})f_2(X_{2})] &= \int_{\mathbb{R}^{2}}f_1(x_1)f_2(x_2)(\mu_1 \otimes \mu_2)(dx_1 dx_2)\\
+        &= \int_{R}\mu_2(dx_2)\int_{\mathbb{R}}\mu_1(dx_1)f_1(x_1)f_2(x_2)\\
+        &= \int _{\mathbb{R}}u_2(dx_2)f_2(x_2)\int_{\mathbb{R}}u_1(x_1)f_1(x_1)\\
+        &= E\Big[f_1(X_1) \Big]E\Big[f_2(X_2)\Big]
+    \end{align*}
+\end{proof}
+\begin{remark}
+    It's OK to mix notation: if $X \independent Y$, then 
+    \begin{align*}
+        E\Big[g(X,Y)\Big] = \int g \, d \mu\otimes \nu = \int \nu(dy)\int \mu(dx) g(x,y)\\
+        = \int \nu(dy)\mathbb{E}\Big[g(X,y)\Big]
+    \end{align*}
+\end{remark}
+
+\begin{corollary}
+    Let $X = (X_1, \ldots ,X_n)$ have PDF $f$ on $\mathbb{R}^{n}$, and let $f_i$ be PDF of
+    $X_{i}$ for $i=1, \ldots ,n$. Then
+    \begin{align*}
+        X_1, \ldots ,X_{n} \text{ are independent} \iff f(x_1, \ldots ,x_n) = \prod_{i=1}^{n}f_i(x_i)
+        \quad \text{for Lebesgue almost every} (x_1, \ldots ,x_n) \in \mathbb{R} 
+    \end{align*}
+\end{corollary}
+
+\begin{definition}[convolutions]
+    Let $\mu, v$ be Borel probability measure on $\mathbb{R}$. Their $\underline{\text{
+        convolution
+    }}$ is 
+    \begin{align*}
+        \mu * \nu(B) = \int_{\mathbb{R}} \mu(B-x)\nu(dx), \quad B \in \mathcal{B}_{\mathbb{R}}
+    \end{align*}
+\end{definition}
+
+Why is $\mu(B-x)$ is measurable?
+
+$\mu(B-x) = \int_{\mathbb{R}}\1_{B-x}(y)\mu(dy) = \int_{\mathbb{R}}
+\underbrace{\1_{B}(x+y)}_\text{jointly measurable function}(x,y)\mu(dy)$
+
+Fubini $\Longrightarrow$ the intepretation over $y$ leaves a measurable function of the variable $x$.
+
+\vspace{10mm}
+We consider the probability meaning of $\mu*v$:
+\begin{align*}
+    \mu * \nu(B) &= \int_{\mathbb{R}}\Big[\int_{\mathbb{R}}\1_{B}(x+y)\mu(dx) \Big]\nu(dy)\\
+    &= \int_{\mathbb{R}^{2}}\1_{B}(x+y)(\mu \otimes \nu)(dx,dy)\\
+    &= \mathbb{E}\Big[\1_{B}(X+Y)\Big]\\
+    &= P(X+Y \in B)
+\end{align*}
+Let $X \independent Y$, $X \sim  \mu, Y \sim  \nu$. Then we have $(X,Y) \sim  \mu\otimes \nu$
+
+\begin{theorem}
+    $X \independent Y$, $X \sim  \mu$, $Y \sim \mu $ $\Longrightarrow X+Y \sim  \mu\times \nu$
+\end{theorem}
+
+What happened 
+
+Suppose $\mu$ has PDF $f$, $\nu$ has PDF $g$. Find 
+\begin{align*}
+    \mu * \nu(A) = \int_{\mathbb{R}^{2}}\1_{A}(x+y)\mu(dx)\nu(dy)\\
+    = \int_{\mathbb{R}^{2}}\1_{A}(x+y)f(x)g(y), dxdy\\
+    = \int_{\mathbb{R}}dxf(x) \int_{\mathbb{R}}\1_{A}(x+y)g(y)\, dy\\
+    = \int_{\mathbb{R}}dxf(x) \int_{\mathbb{R}}\1_{A}(y)(y-x)\,dy\\
+    = \int_{\mathbb{R}}dy\1_{A}(y) \int_{\mathbb{R}}dx f(x)g(y-x)
+\end{align*}
+By definition $f*g(y)$ we see that is the PDF of $\mu * v$
+
+\begin{example}
+    Gaussian density: $f(x_1) = \frac{1}{\sqrt{2\pi\sigma_1^{2}}}e^{-\frac{(x-m_1)}{
+        2\sigma_1^{2}
+    }}$ and $f(x_2) = \frac{1}{\sqrt{2\pi\sigma_2^{2}}} e^{-\frac{(x-m_2)^{2}}{2\sigma_2^{2}}}$.
+
+    We have 
+    \begin{align*}
+        (f_1 * f_2)(x) = \frac{1}{\sqrt{2\pi (\sigma_1^{2} + \sigma_2^{2})}}
+        e^{-\frac{(x - m_1 - m_2)^{2}}{2(\sigma_1^{2}+ \sigma_2^{2})}}
+    \end{align*}
+\end{example}
+
+
 
 \end{document}
