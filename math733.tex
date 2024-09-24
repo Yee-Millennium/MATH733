@@ -851,4 +851,176 @@ Two big goals for IID process $\{ X_k \}_{k \in \mathbb{Z} > 0}$
     \end{align*}
 \end{remark}
 
+\begin{lemma}[Borel-Cantelli]
+    $\{ A_n \}_{n\ge 1}$ a sequence of events on $(\Omega, \mathcal{F}, P)$ and $
+    \sum_{n}P(A_n) < \infty \Longrightarrow P(\bigcap_{m=1}^{\infty}\bigcup_{n\ge m} A_n) = 0$
+\end{lemma}
+
+\begin{lemma}[2nd Borel-Cantelli]
+    Let $\{ A_n \}_{n\ge 1}$ be independent events. Then 
+    \begin{align*}
+        \sum_{n}P(A_n) < \infty \Longrightarrow P(\bigcap_{n=1}^{\infty}\bigcup_{n=m}^{\infty}) = 1
+    \end{align*}
+\end{lemma}
+
+\begin{proof}
+    Let $M < N$. 
+    \begin{align*}
+        P(\bigcap_{n=M}^{N}A_{n}^{c}) = \prod_{n=m}^{N} (1-P(A_n)) \le \prod_{n=M}^{N} e^{-P(A_n)}\\
+        = e^{-\sum_{n=M}^{N}P(A_n)} \underset{N \to \infty}{0}\\
+        \Longrightarrow P(\bigcap_{n=M}^{\infty}A_n^{c}) = 0\\
+        \Longrightarrow 1= P(\bigcup_{n=M}^{\infty}A_n) = 1 \quad \text{ true } \forall M
+    \end{align*}
+    So 
+    \begin{equation}
+        P(\bigcap_{M=1}^{\infty}\bigcup_{n=M}^{\infty}) = 1
+    \end{equation}
+\end{proof}
+
+\begin{example}
+    Roll a fair dice $\infty$ often. $X_n = \text{ outcome of }n \text{-th roll}$.
+    \begin{align*}
+        \sum_{n=1}^{\infty}P(X_n = 6) = \sum_{n=1}^{\infty}\frac{1}{6} = \infty\\
+        \overset{\text{2nd} B-C}{\Longrightarrow} P(X_n = 6 \text{ i.o.})  = 1
+    \end{align*}
+\end{example}
+
+\begin{definition}
+    $X_n \overset{a.s.}{X}$ if $P\{ \omega \in \Omega: \lim_{n \to \infty} \}X_n(\omega) = X(\omega)$
+\end{definition}
+
+\begin{definition}
+    $X_n$ converges to $X$ $\underline{\text{in probability }} (X_n \overset{P}{\to} X)$ 
+    if $\forall \epsilon > 0$
+    \begin{align*}
+        P(|X_n - X| \ge \epsilon) \underset{n\to \infty}{0}
+    \end{align*}
+\end{definition}
+
+\begin{remark}[Observation]
+    $X_n \overset{a.s.}{\longrightarrow} X \Longrightarrow X_n \overset{P}{\longrightarrow}$
+    \begin{align*}
+        1 = P(X_n \longrightarrow X) = P(\bigcap_{k=1}^{\infty}\bigcup _{m=1}^{\infty}\bigcap_{n=m}^{\infty}
+        \{ |X_n - X| \le \frac{1}{k} \})\\
+        \le P(\bigcup _{m=1}^{\infty}\bigcap _{n=m}^{\infty}\{ |X_n-X| \le \frac{1}{k} \}) \quad \forall \, k \in \mathbb{Z}_{> 0}
+        \quad \text{(Notice that this increases with )}m \\
+        = \lim_{m \to \infty}P(\bigcap_{n=m}^{\infty}\{ |X_n-X| \le \frac{1}{k} \}) \\
+        \le \underbrace{\lim_{m \to \infty} P(|X_m - X| \le \frac{1}{k})}_{\text{this limit} = 1 \; \forall k}
+    \end{align*}
+\end{remark}
+
+\begin{theorem}
+    \,
+
+    $X_n \overset{P}{\longrightarrow} X \Longrightarrow $ 
+    Every subsequence $\{ X_{n_{(m)}} \}_{m=1}^{\infty}$ has 
+    a further subsequence $X_{n(m_{k})} \overset{a.s.}{\underset{k\to \infty}{\longrightarrow}} X$
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item $(\Longrightarrow)$
+        Assumption is : $\forall  \epsilon > 0, P(|X_n-X| \ge \epsilon) \longrightarrow \epsilon$
+
+        Let subseq $\{ n(m) \}_{m=1}^{\infty}$ be given. Pick $n(m_1) < n(m_2)<\cdots<n(m_{k})<\cdots$
+        such that
+        \begin{align*}
+            P(|X_{n(m_{k})} - X| \ge 2^{-k}) < 2^{-k}\\
+            \sum_{k=1}^{\infty}2^{-k} < \infty \Longrightarrow \text{ by B-C, w.p.1.}\\
+            \exists k_0 = k_0(\omega) \text{ s.t. } k \ge \underbrace{k_0(\omega)}_{\text{random index}}
+             \Longrightarrow 
+            |X_{n(m_{k})} - X| < 2^{-k} \quad \omega \in \Omega
+        \end{align*}
+        \begin{remark}
+            $k_0$ is random means that it is a function of $\omega$.
+        \end{remark}
+        \item $(\Longleftarrow)$ pf by contradiction: suppose $X_n \overset{P}{\longrightarrow}$ fails.
+        Then $\exists \epsilon > 0$ s.t. $P(|X_n - X| \ge \epsilon) \longrightarrow 0$ Fails.
+        So $\exists $subseq $n(m)$ and $\delta > 0$ s.t. 
+        $P(|X_{n(m)} - X| \ge \epsilon) \ge \delta$. But by assumption $\exists $further subsequence
+        converges a.s. $X_{n(m_{k})} \overset{\longrightarrow}{X} X \Longrightarrow
+        X_{n(m_{k})} \overset{P}{\longrightarrow} X \Longrightarrow 
+        P(|X_{n(m_k)} - X| \ge \epsilon) \longrightarrow 0$
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}[SLLN and WLLN]
+    SLLN: \begin{align*}
+        P(\frac{S_n}{n} \longrightarrow \mathbb{E}X_1) = 1
+    \end{align*}
+    where $S_n = \sum_{i=1}^{n}X_k$ IID $\{ X_k \}$
+    WLLN: $\frac{S_n}{n} \overset{P}{\longrightarrow} \mathbb{E}X_1$
+\end{theorem}
+
+Here we can write $\frac{S_n - \mathbb{nE}X_1}{n} = \frac{S_n - \mathbb{E}S_n}{n}
+\overset{a.s.}{0}$
+
+\begin{lemma}[Chebyshev's Inequality]
+    \begin{align*}
+        P(|X-\mathbb{E}X| \ge a)  =  P(|X-\mathbb{E}X|^{2} \ge a^{2})\\
+        \le \frac{\mathbb{E}[|X-\mathbb{E}X|^{2}]}{a^{2}}\\
+        = \frac{\operatorname{Var}(X)}{a^{2}}
+    \end{align*}
+    \begin{remark}
+        Why do we wanna use the square? Because $L^{2}$ is the Hilbert space but $L^{1}$ is just a 
+        Banach space.
+    \end{remark}
+\end{lemma}
+
+\begin{definition}
+    $X$ and $Y$ are $\underline{\text{uncorrelated}}$ is $0 = \operatorname{Cov}(X,Y)
+    = \mathbb{E}[(X-\mathbb{E}X)(Y-\mathbb{E}Y)] = E[XY] - \mathbb{E}X \mathbb{E}Y$.
+\end{definition}
+
+We know that $X \independent Y \Longrightarrow X$ and Y uncorrelated.
+
+Computation:
+\begin{align*}
+    \operatorname{Var}(X+Y) = \mathbb{E}[(X+Y)^{2}] - (\mathbb{E}X + \mathbb{E}Y)^{2}\\
+    = \mathbb{E}(X^{2}) + 2\mathbb{E}(XY) + \mathbb{E}(Y^{2}) - (\mathbb{E}X)^{2} - 2\mathbb{E} X \mathbb{E}Y 
+    - (\mathbb{E}Y)^{2} = \operatorname{Var}(X) + \operatorname{Var}(Y) + 2\operatorname{Cov}(X,Y)
+\end{align*}
+
+\begin{theorem}[SLLN]
+    Let $\{ X_k \}_{k=1}^{\infty}$ be pairwise independent, identically distributed, integrable.
+    Let $S_n = \sum_{k=1}^{n}X_k$. Then $P\{ \frac{S_n}{n} \longrightarrow EX_1 \} = 1$
+\end{theorem}
+\begin{proof}
+    \,
+
+    Truncation: define $Y_k = X_k \cdot \1_{\{ |X_k| \le k \}}$. Let $T_n = \sum_{k=1}^{n} Y_k$
+    \begin{lemma}[(a)]
+        The theorem will follow from showing that 
+        \begin{align*}
+            \frac{T_n}{n} \overset{a.s.}{\longrightarrow}EX_1
+        \end{align*}
+    \end{lemma}
+    \begin{proof}[proof of lemma (a.)]
+        \begin{align*}
+            \sum_{k=1}^{\infty}P(X_k \neq Y_k) = \sum_{k=1}^{\infty}P(|X_k|>k)\\
+            = \sum_{k=1}^{\infty} \int_{k-1}^{k} P(|X_k| > k) \mathrm{d}t \\
+            \le \sum_{k=1}^{\infty} \int_{k-1}^{k}P(|X_1| . t)\, dt \\
+            = \int_{0}^{\infty}P(|X_1| > t)\,dt \\
+            = E|X_1| \le \infty
+        \end{align*}
+        Notice for $\int_{0}^{\infty}P(|X_1| > t)\,dt$:
+        \begin{align*}
+            \int_{0}^{\infty}E\1_{|X_1| > t}\,dt = E\int_{0}^{\infty}\1_{|X_1| > t}\,dt \\
+            = E \int_{0}^{|X_1|}\,dt = E|X_1|
+        \end{align*}
+        $\text{B-C} \Longrightarrow \exists \text{ random }k_0$ s.t.
+        \begin{align*}
+            k > k_0 \Longrightarrow X_k = Y_k
+        \end{align*}
+        Suppose $\frac{T_n}{n} \longrightarrow EX_1$ a.s.
+        \begin{align*}
+            \frac{S_n}{n} = \frac{T_n}{n} + \frac{S_n - T_n}{n}\\
+            \Longrightarrow \frac{|S_n - T_n|}{n} \le \frac{1}{n} \sum_{k=1}^{n}|X_k-Y_k|\\
+            \le \frac{1}{n}\sum_{k=1}^{k_0(\omega)} |X_k(\omega)-Y_k(\omega)|
+            \underset{n \longrightarrow \infty}{\longrightarrow} 0
+        \end{align*}
+    \end{proof}
+\end{proof}
+
+
+
 \end{document}
