@@ -1018,9 +1018,174 @@ Computation:
             \le \frac{1}{n}\sum_{k=1}^{k_0(\omega)} |X_k(\omega)-Y_k(\omega)|
             \underset{n \longrightarrow \infty}{\longrightarrow} 0
         \end{align*}
+        \DATE{Sep 26, 2024}
+        Last time we observed $EX = \int_{0}^{\infty}P(X > s)  \mathrm{d}s$ for $X \ge 0$.
+
+        This generalizes: let $X \ge 0,\, h:[0,\infty) \to \mathbb{R}$ nondecreasing, $h(0) = 0,\, 
+        h \in C^{1}$:
+        \begin{align}
+            E[h(x)] = E[h(x) - h(0)] = E[\int_{0}^{X}h'(x)  \mathrm{d}x] = 
+            E[\int_{0}^{\infty}h'(x)\1_{X > 0}  \mathrm{d}x] \\
+            = \int_{0}^{\infty}h'(x)P(X > 0)  \mathrm{d}x
+        \end{align}
     \end{proof}
+    \begin{lemma}[b.]
+        $\sum_{k=1}^{\infty} \frac{\operatorname{Var}(Y_k)}{k^{2}} \le 4E|X_1| < \infty$
+    \end{lemma}
+    \begin{proof}
+        \begin{align}
+            \operatorname{Var}(Y_k) \le E(Y_k^{2}) = \int_{0}^{\infty}2y \underbrace{P(|Y_k| > y)}_{
+                y>k: = 0; \; y < k: \le P(|X_k| > y)
+            }  \mathrm{d}y \\
+            \le \int_{0}^{k}2y P(|X_1| > y)  \mathrm{d}y 
+        \end{align}
+        Then we have
+        \begin{align}
+            \sum_{k=1}^{\infty}\frac{\operatorname{Var}(Y_k)}{k^{2}} \le \sum_{k=1}^{\infty}
+            \frac{1}{k^{2}}\int_{0}^{\infty}\1_{y<k}2yP(|X_1| > y)  \mathrm{d}y \\
+            = \int_{0}^{\infty}
+            \underbrace{(\sum_{k=1}^{\infty}\frac{1}{k^{2}}\1_{y<k}2y)}_{A(y)}
+            P(|X_1|>y)  \mathrm{d}y \\
+            \overset{\text{lemma c}}{\le} 4\int_{0}^{\infty}P(|X_1| > y)  \mathrm{d}y = 4E|X_1|
+        \end{align}
+    \end{proof}
+    \begin{lemma}[c.]
+        $A(y) \le 4 \quad \forall \,y\ge 0$
+    \end{lemma}
+    \begin{proof}[c.]
+        \begin{align}
+            \sum_{k \ge 0}\frac{1}{k^{2}} \le \int_{m-1}^{\infty}\frac{1}{x^{2}}  \mathrm{d}x\\
+            = \frac{1}{m-1} \quad \text{ for }m \ge 2\text{, }m \in \mathbb{Z}
+        \end{align}
+        For $y \ge 1:$
+        \begin{align}
+            2y \sum_{k > y}\frac{1}{k^{2}} = 2y \sum_{k\ge \lfloor y \rfloor + 1}\frac{1}{k^{2}}\\
+            \le \frac{2y}{\lfloor y \rfloor} \\
+            \le 2 \frac{\lfloor y \rfloor + 1}{\lfloor y \rfloor} \\
+            = 2(1+\frac{1}{\lfloor y \rfloor}) \\
+            \le 4 
+        \end{align}
+        For $0 < y < 1$:
+        \begin{align}
+            2y\sum_{k > y}\frac{1}{k^{2}} = 2y \sum_{k=1}^{\infty}\frac{1}{k^{2}} \\
+            \le 2(1+ \sum_{k=2}^{\infty}\frac{1}{k^{2}}) \le 4
+        \end{align}
+        \begin{remark}
+            For $x \in \mathbb{R},\, \lfloor  x  \rfloor = \max\{ n \in \mathbb{Z}: n \le x \}$
+        \end{remark}
+    \end{proof}
+    Let $\alpha > 1$ (real), $k(n) = \lfloor \alpha ^{n} \rfloor$
+    \begin{align*}
+        \sum_{n=1}^{\infty}P(|T_{k(n)} - ET_{k(n)}| \ge \epsilon k(n)) \le 
+        \sum_{n=1}^{\infty} \frac{\operatorname{Var}(T_{k(n)})}{\epsilon ^{2}k(n)^{2}}\\
+        = \epsilon^{-2}\sum_{n=1}^{\infty} \frac{1}{k(n)^{2}}\sum_{m=1}^{k(n)}
+        \operatorname{Var}(Y_m) \\
+        = \epsilon ^{-2}\sum_{m=1}^{\infty}\operatorname{Var}(Y_m) 
+        \underbrace{\sum_{n: k(n) \ge m}\frac{1}{k(n)^{2}}}_{[*]} \\
+        \le \frac{4 \epsilon ^{-2}}{1-\alpha ^{-2}}\sum_{m=1}^{\infty}
+        \frac{\operatorname{Var}(Y_m)}{m^{2}} < \infty \quad \text{by lemma} (b)
+    \end{align*}
+    And we have 
+    \begin{align*}
+        [*] = \sum_{n: k(n)\ge m}\frac{1}{k(n)^{2}} \\
+        = \sum_{n: \alpha ^{n} \ge m} \frac{1}{\lfloor \alpha ^{n} \rfloor ^{2}} \\
+        \le 4 \sum_{n: \alpha ^{n} \ge m}\alpha ^{-2n} \\
+        \le 4 \frac{m^{-2}}{1-\alpha ^{-2}}
+    \end{align*}
+    \begin{claim}
+        $\lfloor \alpha ^{n} \rfloor \ge \frac{\alpha ^{n}}{2}$ because $\alpha > 1$
+    \end{claim}
+    By B-C: 
+    \begin{align*}
+        \frac{T_{k(n)}}{k(n)} - \frac{ET_{k(n)}}{k(n)} \overset{a.s.}{\longrightarrow} 0
+    \end{align*}
+    Check the $\frac{ET_{k(n)}}{k(n)}$:
+    \begin{align*}
+        EY_{k} = E[X_1 \cdot \1_{|X_1| \le k}] \underset{k \longrightarrow \infty}{\longrightarrow} EX_1
+    \end{align*}
+    by DCT and assumption $E|X_1| < \infty$
+
+    Thus 
+    \begin{align*}
+        \frac{ET_{k(n)}}{k(n)} = \frac{1}{k(n)}\sum_{m=1}^{k(n)}E(Y_m) \underset{n \longrightarrow \infty}
+        {\longrightarrow}EX_1
+    \end{align*}
+    \begin{remark}
+        Cesaro convergence: $a_k \underset{k \longrightarrow \infty}{a} \Longrightarrow
+        \frac{1}{n}\sum_{k=1}^{n}a_k \underset{n\to\infty}{\longrightarrow} a$
+    \end{remark}
+    Now we have: 
+    \begin{align*}
+        \frac{T_{k(n)}}{k(n)} \overset{a.s.}{\longrightarrow} EX_1
+    \end{align*}
+    It's enough to prove the theorem for $X_k \ge 0$!
+
+    Because then 
+    \begin{align*}
+        \frac{S_n}{n} = \frac{1}{n}\sum_{k=1}^{n}X_k \\
+        = \frac{1}{n}\sum_{k=1}^{n}X_{k}^{+} - \frac{1}{n}\sum_{k=1}^{n}X_{k}^{-}\\
+        \longrightarrow E(X_1^{+}) - E(X_1^{-}) = E(X_1)
+    \end{align*}
+    Now assume $X_k \ge 0$. Then also $Y_k \ge 0$.
+
+    Let $k(n) \le m \le k(n+1)$. $T_{k(n)} \le T_m \le T_{k(n+1)}$
+    \begin{align*}
+        \Longrightarrow \frac{T_{k(n)}}{k(n+1)} \le \frac{T_m}{m}  \le \frac{T_{k(n+1)}}{k(n)}\\
+        \Longrightarrow \frac{k(n)}{k(n+1)} \cdot \frac{T_{k(n)}}{k(n)} \\
+        \le \frac{T_m}{m} \\
+        \le \frac{k(n+1)}{k(n)} \cdot \frac{T_{k(n+1)}}{k(n+1)}
+    \end{align*}
+    Now we have $P\{ \frac{EX_1}{\alpha} \le 
+        \underline{\lim}\frac{T_m}{m} \le \overline{\lim}\frac{T_m}{m} \}
+        \le \alpha EX_1
+        $ = 1
+
+    Last step: $\alpha \searrow 1$ along some sequence. Then we get:
+    \begin{align*}
+        P \{ EX_1 \le \underline{\lim}_{m \to \infty} \le 
+        \overline{\lim}_{m \to \infty} \frac{T_m}{m} \le EX_1 \} = 1
+    \end{align*}
 \end{proof}
 
+Application: Empirical distribution function:
+\begin{align*}
+    F_n(x) = \frac{1}{n}\sum_{k=1}^{n} \1_{X_k \le x} \overset{a.s.}{\underset{n \to \infty}{\longrightarrow}} 
+    E[\1_{X_1 \le x}]\\
+    = P(X_1 \le x) = F(x)
+\end{align*}
 
+\begin{theorem}[Glivenko-Cantelli theorem]
+    For iid real-valued r.v.'s,
+    \begin{align*}
+        \lim_{n \to \infty}\sup_{x \in \mathbb{R}}|F_n(x) - F(x)| = 0 \quad a.s.
+    \end{align*}
+\end{theorem}
+
+Notice let $\epsilon > 0,\, x < y: \quad F(y)-F(x) < \epsilon$, suppose we know:
+$|F(x) - G(x)| < \epsilon, \; |F(y) - G(y)| < \epsilon$.
+
+For $z \in (x,y): \; G(z) - F(z) \le G(y) - F(x) = G(y) - F(y) + F(y) - F(x) < 2\epsilon$
+
+\section{}[2.5]
+Let $\{ X_k \}_{k=1}^{\infty}$ be r.v.'s on $(\omega, \mathcal{F}, P)$.
+\begin{align*}
+    \mathcal{F}_{n} = \sigma\{ X_1, \ldots ,X_n \},\, 
+    \mathcal{F}_n' = \sigma \{ X_n, \ldots ,X_{n+1}, \ldots  \}
+\end{align*}
+We call $\mathcal{J} = \bigcap_{n=1}^{\infty}\mathcal{F}_{n}'$ be tail $\sigma$-algebra.
+
+\begin{example}
+    \begin{enumerate}
+        \item $\overline{\lim}X_n$ is $\mathcal{T}$-measurable.
+        \begin{align*}
+            \{ \overline{\lim}X_n \ge a \} = \bigcap_{k=1}^{\infty}\{ X_n >
+            a - \frac{1}{k} \;i.o. \}\\
+            \bigcap_{k=1}^{\infty}\bigcap_{m=1}^{\infty}\bigcup_{n \ge m} \{ X_n > a - \frac{1}{k} \}\\
+            = \bigcap_{k=1}^{\infty}\bigcap_{m=l}^{\infty}\bigcup_{n \ge m} \{ X_n > a - \frac{1}{k} \}\\
+            \in \mathcal{F}_{l}' \quad \text{TRUE} \forall  l \in \mathbb{Z}_{>0} \text{ (in) }\mathcal{T}
+        \end{align*}
+    \end{enumerate}
+    Observation: $B$
+\end{example}
 
 \end{document}
