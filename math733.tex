@@ -1166,7 +1166,7 @@ $|F(x) - G(x)| < \epsilon, \; |F(y) - G(y)| < \epsilon$.
 
 For $z \in (x,y): \; G(z) - F(z) \le G(y) - F(x) = G(y) - F(y) + F(y) - F(x) < 2\epsilon$
 
-\section{}[2.5]
+\subsection{}[2.5]
 Let $\{ X_k \}_{k=1}^{\infty}$ be r.v.'s on $(\omega, \mathcal{F}, P)$.
 \begin{align*}
     \mathcal{F}_{n} = \sigma\{ X_1, \ldots ,X_n \},\, 
@@ -1187,5 +1187,180 @@ We call $\mathcal{J} = \bigcap_{n=1}^{\infty}\mathcal{F}_{n}'$ be tail $\sigma$-
     \end{enumerate}
     Observation: $B$
 \end{example}
+
+
+\DATE{Oct 1, 2024}
+
+Now how about $\bar{S} = \overline{\lim_{n \to \infty}}S_n$?
+
+Suppose $X_1$ is something, $X_2 = X_3 = \cdots = X_n = \cdots = 0$
+\begin{align*}
+    S_n = X_1 \Longrightarrow \bar{S} = X_1 \text{ not }\mathcal{T} \text{-measurable, unless}
+\end{align*}
+
+$X_k = 0, \; \forall k \Longrightarrow \bar{S} = 0$ is $\mathcal{T}$-measurable.
+
+Assume each $X_k\,\mathbb{R}$-valued.
+What about the event $\{ \lim_{n \to \infty} \text{ exists in }\mathbb{R} \}$?
+
+This is tail measurable:
+\begin{proof} 
+    \begin{align*}
+        \bigcap_{k=1}^{\infty} \bigcup_{N=1}^{\infty} \bigcap_{m,n \ge N}
+    \{ |S_m - S_n| < \frac{1}{k} \}\\
+    \bigcap_{k=1}^{\infty} \bigcup_{N\ge l}^{\infty} \bigcap_{m,n \ge N}
+    \{ |S_m - S_n| < \frac{1}{k} \}\\
+    \iff \{ |\sum_{i=N}^{m}X_{i} - \sum_{i=N}^{n}X_{i}| < \frac{1}{k} \} \in \mathcal{F}_{l}^{'} \quad \forall l
+    \end{align*}
+\end{proof}
+
+Now we have $\eta_{x}: x \in \mathbb{Z}^{2}$. Define $\mathcal{F}_{n} = \sigma 
+\{ \eta_{x}: x \in [-n,n]^{2} \bigcap \mathbb{Z}^{2} \}$. 
+And $\mathcal{F}_{n}^{'} = \sigma \{ \eta_{x}: x \notin [-n,n]^{2} \}$, $\mathcal{T} = \bigcap_{n \ge 1}
+\mathcal{F}_{n}'$
+
+\begin{theorem}[Kolmogorov 0-1 law]
+    Let $\{ X_k \}$ be independent. Then every $A \in \mathcal{T}$ satisfies $P(A) \in \{ 0,1 \}$.
+\end{theorem}
+\begin{proof}
+    From the assumption and a $\pi-\lambda$ argument, $F_{n}$ and $\mathcal{F}_{n+1}^{'}$ are 
+    independent $\sigma$-algebras. (Thm.2.1.9), so if $A \in \mathcal{F}_{n}$ and $B \in \mathcal{T}$ 
+    are independent because the $\mathcal{T} \subseteq F_{n+1}^{'}$. 
+
+    Hence $\bigcup _{n \ge 1}\mathcal{F}_{n}$ and $\mathcal{T}$ are independent $\pi$-systems.
+
+    By a lemma we proved, $\sigma(\bigcup_{n\ge 1}\mathcal{F}_n)$ is independent of $\sigma(\mathcal{T})
+     = \mathcal{T}$. Let $ A \in \mathcal{T}$. $T \subseteq  \mathcal{F}_{n}' = \sigma\{ X_n, \ldots , \}$
+     We have 
+     \begin{align*}
+        \sigma(\bigcup _{n \ge 1}\mathcal{F}_{n}) \Longrightarrow A \in \sigma(\bigcup n\ge 1).
+     \end{align*}
+     So $A$ is independent of itself! Lence $P(A) = P(A \bigcap A) = (P(A))^{2} 
+     \Longrightarrow P(A) \in \{ 0,1 \}$
+\end{proof}
+
+\begin{example}
+    An $X_n$ independent. Then we know that $\{ \bar{X} \ge 0 \} \in \{ 0,1 \} \forall a\in \mathbb{R}$.
+
+    Cliam: $\exists c \in [-\infty,\infty]$ s.t.
+    $F(X = c) = 1$
+    \begin{proof}
+        Case 1: $P(\bar{X} > a) = 0 \quad a \in \mathbb{R}$.
+        \begin{align*}
+            P(\bar{X} < \infty = P(\bigcap _{k=1}^{\infty})) = 1
+        \end{align*}
+        Case 2: $\exists  a\in \mathbb{R}$ s.t. $P(\bar{X} > a) = 1$.
+        Lt $C = \sup\{a \in \mathbb{R}: P(\bar{X} ) > 0  \}$
+        \yee{To update it}
+    \end{proof}
+\end{example}
+
+\section{Weak convergence}
+Suppose we want to define what is it means for propabilityu on $\mathbb{R}   $ to converge.
+
+Possible def: $\mu_{n} \to $ if $\mu_{n}(A) \underset{n \to \infty}{\longrightarrow} \quad \forall  A \in B _{\mathbb{R}}$
+\begin{example}
+    \begin{enumerate}
+        \item $\mu_{n} = S_{\frac{1}{n}}, \frac{1}{n} \underset{n \to \infty}{\longrightarrow}$ 
+        so we might want $S_{\frac{1}{n} } \underset{n \to \infty}{\longrightarrow} S_0$. 
+        $[S_{x}(A)] = \1_{A}(x)$, but $S_{\frac{1}{n}}(\{ 0 \}) = 0$ and $S_{0}(\{ 0 \}) = 1$.
+    \end{enumerate}
+\end{example}
+
+We abandon the above definition and we have:
+\begin{definition}
+    Let $(S, \varrho)$ be a metric space with its Borel $\sigma$-algebra $B_{S}$. Let 
+    $C_{b}(S) = \{ f: S \to \mathbb{R}, f\text{ is continuous and }\exists 
+    \text{ constant }C s.t. \} |f(x)| \le C \quad \forall  x \in S$.
+
+    Let $\{ \mu_n \}_{n \ge 1} \text{ and } \mu$ be Borel probability measure on $S$. Then 
+    $\mu_n \longrightarrow \mu$ weakly if $\forall f \in C_{b}(S)$:
+    \begin{align*}
+        \int_{S}f \, d \mu_{n} \underset{n \to \infty}{\longrightarrow} \int_{S}f \, du
+    \end{align*}
+\end{definition}
+
+\begin{example}
+    $\int f \, d \delta_{\frac{1}{n}} = f(\frac{1}{n}) \longrightarrow f(0) = \int f d \delta_{0}$, so 
+    \begin{align*}
+        \delta_{\frac{1}{n}} \longrightarrow \delta_{0} \text{ weakly}.
+    \end{align*}
+\end{example}
+
+Alternative notation:
+\begin{align*}
+    \mu_{n} \overset{w}{\mu}, \, \mu_{n} \overset{d}{\longrightarrow}, \mu_n \Longrightarrow \mu
+\end{align*}
+If $X_n \sim \mu_{n}, X \sim \mu$ and $\mu_n \overset{w}{\longrightarrow}\mu$ then we write 
+$X_n \overset{w}{argument} X,\, X_n \overset{d}{X}, \, X_n \Longrightarrow X$.
+
+\begin{theorem}[Portmanteam theorem]
+    Let $\mu_{n}, \mu$ be Borel. Then the following are equivalent:
+    \begin{enumerate}
+        \item $\int f d \mu_n \longrightarrow \int f d \mu \quad \forall f \in C_{b}(S)$.
+        \item $\int f d \mu_n \longrightarrow \int f d \mu$ for all bounded Lipschitz functions 
+        $f: S \to \mathbb{R}$. [Def: f is Lipschitz if there exists a constant L s.t. $
+        |f(x) - f(y)| \le L\varrho(x,y)$] Lipschitz functions are almost everywhere differentiable.
+        \item For closed sets $F \subseteq S$, $\overline{\lim_{n \to \infty}}\mu_n(F) \le \mu(F)$.
+        \item For open sets $G \subseteq S$, $\underline{\lim_{n \to \infty}} \mu_{n}G \ge \mu(G)$.
+        \item If $A \in \mathcal{B}_{S}$ and $\mu(\partial A) = 0$, then $\mu_{n}(A) \longrightarrow \mu(A)$.
+        \item If $f: S \to \mathbb{R}$ is a bounded Borel function, and $\mu(D_{f}) = 0$ for 
+        $D_{f} = \{ x \in S: f \text{ is discontinuous at }x \}$, then 
+        \begin{align*}
+            \int d d \mu_{n} \longrightarrow \int f d \mu
+        \end{align*}
+    \end{enumerate}
+\end{theorem}
+\begin{remark}
+    $\partial A = Bd A = \bar{A} - A^{0}$
+\end{remark}
+
+
+\begin{example}
+    continue the example above: $\int f \, d \delta_{\frac{1}{n}} = f(\frac{1}{n}) \longrightarrow f(0) = \int f d \delta_{0}$, so 
+    \begin{align*}
+        \delta_{\frac{1}{n}} \longrightarrow \delta_{0} \text{ weakly}.
+    \end{align*}
+\end{example}
+
+\begin{proof}
+    \,
+
+    \begin{enumerate}
+        \item[(1) $\Longrightarrow$ (2)] needs no proof 
+        \item[(2) $\Longrightarrow$ (3)] Distance between a point and a set  is 
+        $dist(x,F) = inf \{ \varrho(x,z): z \in F \}$. 
+        \begin{align*}
+            f_{k}(x) = (1 - k\cdot dist(x,F))^{+}
+        \end{align*}
+        Here $f_{k}$ is Lipschitz.
+        \begin{remark}
+            Key Fact: $F \text{ closed } \Longrightarrow [x \in F \iff dist(x,F) = 0]$
+        \end{remark}
+        $\1_{F} \le f \le 1$ and $f_{k}(x) \searrow \1_{F}(x)$ as $k \nearrow \infty$.
+        \begin{align*}
+            \overline{\lim_{n \to \infty}}\mu_{n}(F) \le \overline{\lim_{n \to \infty}}
+            \inf f_{k} d \mu_{n} = \int f_{k} d \mu \underset{k \to \infty}{k\longrightarrow}
+            \int \1_{F} d \mu
+        \end{align*}
+        \item[(3) $\Longrightarrow$ (4)] by taking complements. 
+        \begin{align*}
+            \overline{\lim}\mu_{n}(F) \le \mu(F) \iff 
+            \underline{\lim}\mu_{n}(F^{c}) \ge \mu(F^{c})
+        \end{align*}
+        \item[(3 $\&$ 4) $\Longrightarrow$ (5)] 
+        \begin{align*}
+            \overline{\lim}\mu_{n}(A) \le \overline{\lim}\mu_{n}\bar{A} \le \mu(\bar{A})\\
+            \le \mu(A) + \mu(\partial A) = \mu(A)
+        \end{align*}
+        Now we check the other direction:
+        \begin{align*}
+            \underline{\lim}\mu_{n}(A) \ge \underline{\lim}\mu_{n}(A^{0}) \ge \mu(A^{0})
+            \ge \mu(\bar{A}) - \mu(\partial A) \ge \mu(A)
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+
 
 \end{document}
